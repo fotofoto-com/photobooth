@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SnapBooth - Photobooth Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>📸 Photo Photo</h1>
+        <p>Buat momen kerenmu disini!</p>
+    </header>
+    <main>
+        <section class="card stage">
+            <div class="cam">
+                <video id="video" autoplay playsinline muted></video>
+                <div id="count"></div>
+                <div id="msg"></div>
+            </div>
+            <div id="slots" class="slots"></div>
+            <div class="row">
+                <button id="start" class="btn primary">▶ Mulai Foto</button>
+                <button id="retakeAll" class="btn">↺ Ulang Semua</button>
+                <button id="flip" class="btn">🔄 Ganti Kamera</button>
+            </div>
+            <small>Tip: ketuk salah satu kotak foto di atas untuk mengulang foto itu saja.</small>
+        </section>
+
+        <section class="card panel">
+            <h3>Jumlah Frame</h3>
+            <div class="chips" id="frames"></div>
+            <h3>Timer per Foto</h3>
+            <select id="timer">
+                <option value="5">5 detik</option>
+                <option value="7">7 detik</option>
+                <option value="10">10 detik</option>
+            </select>
+            <h3>Filter Foto</h3>
+            <div class="chips" id="filters"></div>
+            <h3>Tema Strip</h3>
+            <div class="chips" id="themes"></div>
+            <h3>Warna Strip</h3>
+            <div class="chips" id="colors"></div>
+            <h3>Hasil</h3>
+            <canvas id="strip"></canvas>
+            <div class="row">
+                <button id="save" class="btn primary">💾 Simpan ke Galeri</button>
+                <button id="dl" class="btn">⬇ Unduh PNG</button>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
